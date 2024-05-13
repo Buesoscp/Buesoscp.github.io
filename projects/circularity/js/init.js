@@ -20,8 +20,8 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-        var circle;			// variable to hold a single circle when creating circles / iterating
-        var circles = [];	// variable to store all circles in one Array
+        var circle;			
+        var circles = [];
 
         // TODO 2 : Create a function that draws a circle 
           function drawCircle(){
@@ -41,9 +41,6 @@ var init = function (window) {
           // do something
          drawCircle();
         }
-        
-         
-         
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -64,27 +61,10 @@ var init = function (window) {
                }
         
             
-            
-            // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-           
-            game.checkCirclePosition(circle);
-            game.checkCirclePosition(circle);
-            game.checkCirclePosition(circle);
-            game.checkCirclePosition(circle);
-            game.checkCirclePosition(circle);
-        
-        
-            
-           
-           
-            }
-           
-           
-           
-            // TODO 9 : Iterate over the array
-           
-            
+    
         }
+            // TODO 9 : Iterate over the arra
+        
     
         /* 
         This Function should check the position of a circle that is passed to the 
@@ -97,13 +77,19 @@ var init = function (window) {
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
             }
-            
+             if (circle.x < 0) {
+                circle.x = canvas.width;
+             }
+
+             if (circle.y > canvas.height) {
+                circle.y = 0;
+             }
+
+             if (circle.y < 0) {
+                circle.y = canvas.height
+             } 
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            game.checkCirclePosition = function (circle) {
-                // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-                if (circle.x > canvas.width) {
-                  circle.x = 0;
-                }
+        
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
@@ -123,8 +109,7 @@ var init = function (window) {
         
         app.addUpdateable(window.opspark.game);
     }
-    };
-
+};
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
